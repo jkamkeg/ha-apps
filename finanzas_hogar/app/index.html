@@ -77,6 +77,10 @@ tr.click{cursor:pointer} tr.click:hover td{background:var(--accent-soft)}
 label{font-size:13px;color:var(--muted);display:grid;gap:4px}
 input,select,textarea{font:inherit;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:8px 10px;min-width:0;width:100%}
 input[type=checkbox]{width:auto}
+/* iOS: los campos de fecha/mes tienen un ancho mínimo propio y se salen de su columna */
+input[type=date],input[type=month]{-webkit-appearance:none;appearance:none;display:block;min-width:0;max-width:100%;min-height:40px;text-align:left}
+input::-webkit-date-and-time-value{text-align:left}
+.form>*{min-width:0}
 input:disabled,select:disabled{opacity:.7}
 .form{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px}
 .form .wide{grid-column:1/-1}
