@@ -1,5 +1,5 @@
 name: Finanzas del hogar
-version: "1.0.1"
+version: "1.0.2"
 slug: finanzas_hogar
 description: Gastos compartidos, compras en cuotas y cierre mensual entre dos personas
 arch:

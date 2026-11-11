@@ -1,5 +1,9 @@
 # Cambios
 
+## 1.0.2
+
+- Los meses del eje de los gráficos ya no se superponen en pantallas chicas: se muestran cada 2 o 3 meses según el ancho.
+
 ## 1.0.1
 
 - Corrige los campos de fecha que se superponían en el celular (iPhone).

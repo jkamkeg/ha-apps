@@ -522,7 +522,7 @@ function montarChart(){
   const y=v=>T+(H-T-B)*(1-v/top);
   let g='';
   for(let v=0;v<=top+1;v+=step){g+='<line x1="'+L+'" x2="'+(W-R)+'" y1="'+y(v)+'" y2="'+y(v)+'" stroke="var(--line)" stroke-width="1"/><text x="'+(L-8)+'" y="'+(y(v)+4)+'" text-anchor="end">'+abrev(v)+'</text>'}
-  const every=Math.ceil(d.length/12);
+  const every=Math.max(1,Math.ceil(d.length/Math.max(1,Math.floor((W-L-R)/56))));
   d.forEach((x,i)=>{
     const cx=L+bw*i+bw/2,x0=cx-bar/2;
     const yc=y(x.comp),yp=y(x.comp+x.pers);
@@ -604,7 +604,7 @@ function stackChart(id,d,ser){
   const bw=(W-L-R)/d.length;const bar=Math.max(4,Math.min(36,bw-4));const y=v=>T+(H-T-B)*(1-v/top);
   let g='';
   for(let v=0;v<=top+1;v+=step)g+='<line x1="'+L+'" x2="'+(W-R)+'" y1="'+y(v)+'" y2="'+y(v)+'" stroke="var(--line)" stroke-width="1"/><text x="'+(L-8)+'" y="'+(y(v)+4)+'" text-anchor="end">'+abrev(v)+'</text>';
-  const every=Math.ceil(d.length/12);
+  const every=Math.max(1,Math.ceil(d.length/Math.max(1,Math.floor((W-L-R)/56))));
   d.forEach((x,i)=>{const cx=L+bw*i+bw/2,x0=cx-bar/2;let acc=0;const vis=ser.filter(s=>x[s.k]>0);
     vis.forEach((s,j)=>{const y1=y(acc),y2=y(acc+x[s.k]);acc+=x[s.k];const last=j===vis.length-1;g+=rectR(x0,y2,bar,Math.max(0,y1-y2-(j>0?2:0)),s.c,last?3:0)});
     if(i%every===0)g+='<text x="'+cx+'" y="'+(H-8)+'" text-anchor="middle">'+mesCorto(x.m)+'</text>';
